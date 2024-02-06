@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>This is our products</h1>
+<table class="table table-dark table-stripped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Products</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (product of productsList; track $index) {
+            <tr>
+                <th scope="row">{{product.id}}</th>
+                <td>{{product.title}}</td>
+                <td>{{product.price | currency}}</td>
+                <td>{{product.description}}</td>
+                <td><button class="btn btn-outline-secondary" (click)="navegate(product.id)">View Details</button></td>
+            </tr>
+        }
+    </tbody>
+  </table>
+  <ng-container  *ngIf="isLoading">
+    <p style="text-align: center">Cargando...</p>
+  </ng-container> 
+</div>
